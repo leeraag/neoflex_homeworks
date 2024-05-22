@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.tooltip {
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 2vw;
+}
+
+.tooltip::after {
+    content: attr(data-title);
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+    -moz-transition: opacity 0.5s ease;
+    -ms-transition: opacity 0.5s ease;
+    -o-transition: opacity 0.5s ease;
+    z-index: 1;
+    display: block;
+    width: 30%;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 1vw;
+    padding: 5px 10px;
+    border: 1px solid #333;
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 400;
+    left: 7.5vw;
+    top: -15vh;
+    transform:translateY(30%);
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
