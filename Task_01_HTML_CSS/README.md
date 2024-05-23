@@ -43,5 +43,3 @@ _Tablet - 768px_
 ![about768](https://github.com/leeraag/neoflex_homeworks/assets/86301046/370edafa-a6ec-4932-adde-05a1c205ef63)
 _Mobile S - 320px_
 ![about320](https://github.com/leeraag/neoflex_homeworks/assets/86301046/865efabf-ba06-4272-bcab-6c80082bc75b)
-
-
