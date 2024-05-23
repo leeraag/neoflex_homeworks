@@ -22,14 +22,8 @@ body {
 }
 .top h1 {
   font: 800 calc(22px + 0.5vw) Montserrat;
-}
-.top hr {
-  border: 0;
-  clear: both;
-  display: block;
-  background-color: #333;
-  height: 1px;
-  width: 5%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
 }
 .top p {
   font: calc(12px + 0.5vw) Montserrat;
@@ -52,7 +46,23 @@ body {
   align-items: center;
   justify-content: center;
 }
-.card .card__item .card__img__container {
+@media (min-width: 1024px) {
+  .card .card__item .line {
+    height: 1.5px;
+    width: 35%;
+    position: relative;
+    background-color: #d8d8d8;
+  }
+  .card .card__item .line-left {
+    top: 50px;
+    right: 150px;
+  }
+  .card .card__item .line-right {
+    top: -50px;
+    right: -150px;
+  }
+}
+.card .card__item .card__img-container {
   width: 100px;
   height: 100px;
   border: 1px solid #d8d8d8;
@@ -62,7 +72,7 @@ body {
   justify-content: center;
   margin: 0;
 }
-.card .card__item .card__img__container img {
+.card .card__item .card__img-container img {
   width: 50%;
 }
 .card .card__item .card__title {
