@@ -35,6 +35,11 @@ body {
 .converter .converter__header {
   font: 800 calc(6px + 0.5vw) Montserrat;
 }
+.converter .converter__loader {
+  display: none;
+  font: 800 calc(6px + 0.5vw) Montserrat;
+  color: #fff;
+}
 .converter .converter__currencies {
   display: flex;
   flex-direction: row;

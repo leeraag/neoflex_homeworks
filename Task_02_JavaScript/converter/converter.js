@@ -1,11 +1,13 @@
 const API_KEY_CURRENCY = '5f8fee5e22mshed13ce4325035a3p1ddfb1jsnc1a690fb9aa9'
 const API_HOST_CURRENCY = 'currency-exchange.p.rapidapi.com'
 const API_URL_CURRENCY = 'https://currency-exchange.p.rapidapi.com/exchange'
+
+const loader = document.getElementById("loader")
 const getCurrencies = async () => {
     const currencies = ['USD', 'EUR', 'CAD', 'CNY', 'CHF', 'SGD']
     const countCurrency = 6
     let currencyValues = []
-
+    loader.style.display = "block";
     for (let i = 0; i < countCurrency; i++) {
         const options = {
             method: 'GET',
@@ -26,6 +28,7 @@ const getCurrencies = async () => {
                 console.error(error);
             }
         }
+    loader.style.display = "none";
     showCurrencies(currencyValues, currencies)
 }
 

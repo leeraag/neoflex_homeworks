@@ -40,6 +40,12 @@ body {
     .converter__header {
         font: $h3;
     }
+
+    .converter__loader {
+        display: none;
+        font: $h3;
+        color: #fff;
+    }
     .converter__currencies {
         display: flex;
         flex-direction: row;
