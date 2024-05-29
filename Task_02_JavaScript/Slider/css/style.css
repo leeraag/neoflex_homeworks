@@ -1,35 +1,45 @@
 body {
-  color: #333;
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 70vw;
+  position: relative;
 }
 
 .slider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+.slider .content {
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+  margin: auto;
+  box-sizing: border-box;
 }
 .slider .slider__image {
-  width: 70%;
-  border-radius: 3%;
+  width: 15vw;
+  background: #fff;
+  border-radius: 1vw;
 }
-.slider .slider__buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 3vw;
+
+.slider::-webkit-scrollbar {
+  height: 0;
 }
-.slider .slider__buttons button {
+
+.slider__button-prev,
+.slider__button-next {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
   width: 5vw;
   height: 5vw;
   border-radius: 50%;
@@ -38,21 +48,37 @@ body {
   box-shadow: 0px 0px 9px 3px rgba(51, 51, 51, 0.2);
   outline: none;
 }
-.slider .slider__buttons .slider__button-prev:enabled {
+
+.slider__button-prev {
+  top: 50%;
+  left: -15%;
+  transform: translate(50%, -50%);
+}
+
+.slider__button-next {
+  top: 50%;
+  right: -15%;
+  transform: translate(-50%, -50%);
+}
+
+.slider__button-prev:enabled {
   background: #ffffff url("../../assets/images/prev.png") no-repeat center/50% 50%;
-  border: 2px solid #333;
+  border: 1px solid #333;
 }
-.slider .slider__buttons .slider__button-prev:disabled {
+
+.slider__button-prev:disabled {
   background: #ffffff url("../../assets/images/prev_inactive.png") no-repeat center/50% 50%;
-  border: 2px solid #C0C0C0;
+  border: 1px solid #C0C0C0;
 }
-.slider .slider__buttons .slider__button-next:enabled {
+
+.slider__button-next:enabled {
   background: #ffffff url("../../assets/images/next.png") no-repeat center/50% 50%;
-  border: 2px solid #333;
+  border: 1px solid #333;
 }
-.slider .slider__buttons .slider__button-next:disabled {
+
+.slider__button-next:disabled {
   background: #ffffff url("../../assets/images/next_inactive.png") no-repeat center/50% 50%;
-  border: 2px solid #C0C0C0;
+  border: 1px solid #C0C0C0;
 }
 
 /*# sourceMappingURL=style.css.map */

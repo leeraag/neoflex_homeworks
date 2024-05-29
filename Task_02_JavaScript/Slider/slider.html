@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./slider.js" defer></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <main class="container">
         <article class="slider" id="slider">
-            <img class="slider__image" id="image" src=""/>
-            <div class="slider__buttons">
-                <button class="slider__button-prev" id="prevBtn"></button>
-                <button class="slider__button-next" id="nextBtn"></button>
-            </div>
+            <div class="content" id="content"></div>
         </article>
+        <button class="slider__button-prev" id="prevBtn" disabled></button>
+        <button class="slider__button-next" id="nextBtn"></button>
     </main>
-</body>
+  </body>
+  
 </html>

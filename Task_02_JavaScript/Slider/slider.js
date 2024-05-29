@@ -1,47 +1,56 @@
-const BASE_URL = 'https://jsonplaceholder.typicode.com/photos';
-const nextButton = document.querySelector("#nextBtn");
-const prevButton = document.querySelector("#prevBtn");
+const init = () => {
+    const BASE_URL = 'https://jsonplaceholder.typicode.com/photos';
+    const slider = document.getElementById("slider");
+    const content = document.getElementById("content");
+    const next = document.getElementById("nextBtn");
+    const prev = document.getElementById("prevBtn");
 
-const getImages = () => {
-    axios
-      .get(`${BASE_URL}?_limit=5`)
-      .then(response => {
-        const images = response.data
-        showImages(images)
-      })
-      .catch(error => console.error(error))
-}
-
-getImages();
-
-const showImages = (images) => {
-    let currentId = 0;
-    prevButton.disabled=true;
-    const itemImage = document.querySelector("#image");
-    itemImage.src = images[currentId].url;
-
-    const nextBtnHandler = () => {
-        if (currentId != images.length - 1) {
-            prevButton.disabled=false;
-            currentId++;
-            itemImage.src = images[currentId].url;
-        }
-        if (currentId == images.length-1) {
-            nextButton.disabled=true;
-        }
+    const getImages = () => {
+        axios
+        .get(`${BASE_URL}?_limit=15`)
+        .then(response => {
+            const images = response.data
+            showImages(images)
+        })
+        .catch(error => console.error(error))
     }
 
-    const prevBtnHandler = () => {
-        if (currentId != 0) {
-            nextButton.disabled=false
-            currentId--;
-            itemImage.src = images[currentId].url;
-        }
-        if (currentId == 0) {
-            prevButton.disabled=true;
+    getImages();
+
+    const showImages = (images) => {
+        for (let i = 0; i < images.length; i++) {
+            const img = document.createElement("img");
+            img.id = "image";
+            img.className = "slider__image";
+            content.appendChild(img);
+            img.src = images[i].url;
         }
     }
-    
-    nextButton.addEventListener("click", nextBtnHandler);
-    prevButton.addEventListener("click", prevBtnHandler);
+    const gap = 16;
+
+    let width = slider.offsetWidth;
+    window.addEventListener("resize", e => (width = slider.offsetWidth));
+
+    nextBtn.addEventListener("click", e => {
+        slider.scrollBy(width + gap, 0);
+        if (slider.scrollWidth !== 0) {
+            prev.disabled=false;
+        }
+        if (content.scrollWidth - width - gap <= slider.scrollLeft + width) {
+            next.disabled=true;
+        }
+    });
+    prev.addEventListener("click", e => {
+        slider.scrollBy(-(width + gap), 0);
+        if (slider.scrollLeft - width - gap <= 0) {
+            prev.disabled=true;
+        }
+        if (!content.scrollWidth - width - gap <= slider.scrollLeft + width) {
+            next.disabled=false;
+        }
+    });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    init();
+});
