@@ -12,8 +12,14 @@ body {
 }
 
 .container {
-    width: 70vw;
+    width: 500px;
     position: relative;
+}
+
+@media (min-width: 320px) and (max-width: 430px){
+    .container {
+        width: 250px;
+    }
 }
   
 .slider {
@@ -62,6 +68,33 @@ body {
     top: 50%;
     right: -15%;
     transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1024px) {
+    .slider__button-prev {
+        left: -20%;
+    }
+    .slider__button-next {
+        right: -20%;
+    }
+}
+
+@media (min-width: 1440px) {
+    .slider__button-prev {
+        left: -25%;
+    }
+    .slider__button-next {
+        right: -25%;
+    }
+}
+
+@media (min-width: 2560px) {
+    .slider__button-prev {
+        left: -45%;
+    }
+    .slider__button-next {
+        right: -45%;
+    }
 }
 
 .slider__button-prev:enabled {
